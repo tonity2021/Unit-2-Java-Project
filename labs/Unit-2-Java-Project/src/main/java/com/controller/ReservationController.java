@@ -20,17 +20,16 @@ public class ReservationController {
         this.reservationRepository = reservationRepository;
     }
 
-
     //    @GetMapping(path = "/hello")
 //    public String helloWorld() {
 //        return "Hello World";
 //    }
-    @GetMapping(path = "/reservations/") //get all 'reservations' endpoint is working
-    public String getAllReservations() {
-        return "all reservations";
-    }
+//    @GetMapping(path = "/reservations/") //get all 'reservations' endpoint is working
+//    public String getAllReservations() {
+//        return "all reservations";
+//    }
 
-    @GetMapping("/reservations")
+    @GetMapping("/reservations/")
     public List<Reservation> getReservations() {
         System.out.println("calling getReservations ==>");
         return reservationRepository.findAll();
