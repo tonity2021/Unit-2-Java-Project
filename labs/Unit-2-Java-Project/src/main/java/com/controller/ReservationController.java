@@ -65,6 +65,8 @@ public class ReservationController {
     }
 
     //modify reservation by ID
+    //update reservation
+    //name(flight name) has to also be updated in order for this to work
     @PutMapping("/reservation/{reservationId}")
     public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject) {
         System.out.println("calling updateReservation ==>");

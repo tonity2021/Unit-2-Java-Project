@@ -51,6 +51,7 @@ public class ReservationService {
     }
 
     //update reservation
+    //name(flight name) has to also be updated in order for this to work
     public Reservation updateReservation(Long reservationId, Reservation reservationObject) {
         System.out.println("service calling updateReservation ==>");
         Optional<Reservation> reservation = reservationRepository.findById(reservationId);
