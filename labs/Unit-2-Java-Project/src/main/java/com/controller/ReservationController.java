@@ -49,7 +49,7 @@ public class ReservationController {
     }
     @PostMapping("/reservation/")
     public Reservation createReservation(@RequestBody Reservation reservationObject) {
-        System.out.println("calling createCategory ==>");
+        System.out.println("calling createReservation ==>");
 
         Reservation reservation = reservationRepository.findByName(reservationObject.getName());
         if (reservation != null) {
@@ -58,15 +58,34 @@ public class ReservationController {
             return reservationRepository.save(reservationObject);
         }
     }
+    @PutMapping("/reservation/{reservationId}")
+    public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject) {
+        System.out.println("calling updateReservation ==>");
+        Optional<Reservation> reservation = reservationRepository.findById(reservationId);
+        if (reservation.isPresent()) {
+            if (reservationObject.getName().equals(reservation.get().getName())) {
+                System.out.println("Same");
+                throw new InformationExistException("reservation " + reservation.get().getName() + " already exists");
+            } else {
+                Reservation updateReservation = reservationRepository.findById(reservationId).get();
+                updateReservation.setDeparture_city(reservationObject.getDeparture_city());
+                updateReservation.setName(reservationObject.getName());
+                updateReservation.setDestination(reservationObject.getDestination());
+                updateReservation.setDeparture_time(reservationObject.getDeparture_time());
+                updateReservation.setArrival_time(reservationObject.getArrival_time());
+                updateReservation.setBoarding_gate(reservationObject.getBoarding_gate());
+                return reservationRepository.save(updateReservation);
+            }
+        } else {
+            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
 
 
+        }
 
 
+    }
 
-
-
-
-
+    //DO DELETE METHOD AND ALSO PUSH CHANGES/EXIT TICKET
 
 
 
