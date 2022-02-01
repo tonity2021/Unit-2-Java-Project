@@ -1,12 +1,13 @@
 package com.controller;
 
+import com.exceptions.InformationNotFoundException;
 import com.model.Reservation;
 import com.repository.ReservationRepository;
-import jdk.jfr.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -29,9 +30,38 @@ public class ReservationController {
 //        return "all reservations";
 //    }
 
-    @GetMapping("/reservations/")
-    public List<Reservation> getReservations() {
+    @GetMapping("/reservations/")///endpoint working
+    public List<Reservation> getReservation() {
         System.out.println("calling getReservations ==>");
         return reservationRepository.findAll();
     }
+
+    @GetMapping(path = "/reservation/{reservationId}") //endpoint working
+    public Optional getReservation(@PathVariable Long reservationId) {
+        System.out.println("calling getReservations ==>");
+        Optional reservation = reservationRepository.findById(reservationId);
+        if (reservation.isPresent()) {
+            return reservation;
+        } else {
+            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

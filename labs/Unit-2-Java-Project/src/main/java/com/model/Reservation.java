@@ -15,6 +15,9 @@ public class Reservation {
     private Long id;
 
     @Column
+    private String name;
+
+    @Column
     private String departure_city;
 
     @Column
@@ -33,8 +36,9 @@ public class Reservation {
     }
 
 
-    public Reservation(Long id, String departure_city, String destination, int departure_time, int arrival_time, String boarding_gate) {
+    public Reservation(Long id, String name, String departure_city, String destination, int departure_time, int arrival_time, String boarding_gate) {
         this.id = id;
+        this.name = name;
         this.departure_city = departure_city;
         this.destination = destination;
         this.departure_time = departure_time;
@@ -51,6 +55,14 @@ public class Reservation {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDeparture_city() {
@@ -98,6 +110,7 @@ public class Reservation {
     public String toString() {
         return "Reservation{" +
                 "id='" + id +
+                ", name='" + name + '\'' +
                 ", departure_city='" + departure_city + '\'' +
                 ", destination='" + destination + '\'' +
                 ", departure_time='" + departure_time +
