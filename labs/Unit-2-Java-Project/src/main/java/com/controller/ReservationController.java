@@ -47,6 +47,7 @@ public class ReservationController {
             throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
         }
     }
+
     @PostMapping("/reservation/")
     public Reservation createReservation(@RequestBody Reservation reservationObject) {
         System.out.println("calling createReservation ==>");
@@ -58,6 +59,7 @@ public class ReservationController {
             return reservationRepository.save(reservationObject);
         }
     }
+
     @PutMapping("/reservation/{reservationId}")
     public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject) {
         System.out.println("calling updateReservation ==>");
@@ -81,16 +83,18 @@ public class ReservationController {
 
 
         }
-
-
     }
 
+    @DeleteMapping("/reservations/{reservationId}")
+    public Optional<Reservation> deleteReservation(@PathVariable(value = "reservationId") Long reservationId) {
+        System.out.println("calling deleteReservation ==>");
+        Optional<Reservation> reservation = reservationRepository.findById(reservationId);
 
-
-
-
-
-
-
-
+        if (reservation.isPresent()) {
+            reservationRepository.deleteById(reservationId);
+            return reservation;
+        } else {
+            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
+        }
+    }
 }

@@ -27,7 +27,7 @@ public class ReservationService {
         return reservationRepository.findAll();
     }
 
-    public Optional getReservation(Long reservationId) { //optional object
+    public Optional getReservation(Long reservationId) { //optional object which may contain null and non-null values
         System.out.println("service getReservation ==>");
         Optional reservation = reservationRepository.findById(reservationId);
         if (reservation.isPresent()) {
@@ -69,10 +69,22 @@ public class ReservationService {
         } else {
             throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
         }
+    }
 
+    public Optional<Reservation> deleteReservation(Long reservationId) {
+        System.out.println("service calling deleteReservation ==>");
+        Optional<Reservation> reservation = reservationRepository.findById(reservationId);
 
+        if (((Optional<?>) reservation).isPresent()) {
+            reservationRepository.deleteById(reservationId);
+            return reservation;
+        } else {
+            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
+        }
 
     }
+
+
 }
 
 
