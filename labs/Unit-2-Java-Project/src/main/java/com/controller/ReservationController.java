@@ -31,12 +31,15 @@ public class ReservationController {
 //        return "all reservations";
 //    }
 
+
+    //get all reservations
     @GetMapping("/reservations/")///endpoint working
     public List<Reservation> getReservation() {
         System.out.println("calling getReservations ==>");
         return reservationRepository.findAll();
     }
 
+    //get reservation by ID
     @GetMapping(path = "/reservation/{reservationId}") //endpoint working
     public Optional getReservation(@PathVariable Long reservationId) {
         System.out.println("calling getReservations ==>");
@@ -48,18 +51,20 @@ public class ReservationController {
         }
     }
 
+    //create a new reservation
     @PostMapping("/reservation/")
     public Reservation createReservation(@RequestBody Reservation reservationObject) {
         System.out.println("calling createReservation ==>");
 
         Reservation reservation = reservationRepository.findByName(reservationObject.getName());
         if (reservation != null) {
-            throw new InformationExistException("reservation with booking id " + reservation.getName() + " already exists");
+            throw new InformationExistException("reservation with flight " + reservation.getName() + " already exists");
         } else {
             return reservationRepository.save(reservationObject);
         }
     }
 
+    //modify reservation by ID
     @PutMapping("/reservation/{reservationId}")
     public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject) {
         System.out.println("calling updateReservation ==>");
@@ -76,6 +81,9 @@ public class ReservationController {
                 updateReservation.setDeparture_time(reservationObject.getDeparture_time());
                 updateReservation.setArrival_time(reservationObject.getArrival_time());
                 updateReservation.setBoarding_gate(reservationObject.getBoarding_gate());
+                updateReservation.setDeparture_airport(reservationObject.getDeparture_airport());
+                updateReservation.setArrival_airport(reservationObject.getArrival_airport());
+                updateReservation.setAirline_name(reservationObject.getAirline_name());
                 return reservationRepository.save(updateReservation);
             }
         } else {
@@ -85,6 +93,7 @@ public class ReservationController {
         }
     }
 
+    //delete reservation
     @DeleteMapping("/reservations/{reservationId}")
     public Optional<Reservation> deleteReservation(@PathVariable(value = "reservationId") Long reservationId) {
         System.out.println("calling deleteReservation ==>");

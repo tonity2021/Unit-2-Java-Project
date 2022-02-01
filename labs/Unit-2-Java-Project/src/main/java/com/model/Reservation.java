@@ -19,6 +19,15 @@ public class Reservation {
     private String name;
 
     @Column
+    private String departure_airport;
+
+    @Column
+    private String arrival_airport;
+
+    @Column
+    private String airline_name;
+
+    @Column
     private String departure_city;
 
     @Column
@@ -33,20 +42,15 @@ public class Reservation {
     @Column
     private String boarding_gate;
 
-    @Column
-    private String airline_name;
-
-    @Column
-    private String airport_name;
 
     public Reservation() {
     }
 
-
-    public Reservation(Long id, String name, String airport_name, String airline_name, String departure_city, String destination, int departure_time, int arrival_time, String boarding_gate) {
+    public Reservation(Long id, String name, String departure_airport, String arrival_airport, String airline_name, String departure_city, String destination, int departure_time, int arrival_time, String boarding_gate) {
         this.id = id;
         this.name = name;
-        this.airport_name = airport_name;
+        this.departure_airport = departure_airport;
+        this.arrival_airport = arrival_airport;
         this.airline_name = airline_name;
         this.departure_city = departure_city;
         this.destination = destination;
@@ -74,20 +78,28 @@ public class Reservation {
         this.name = name;
     }
 
+    public String getDeparture_airport() {
+        return departure_airport;
+    }
+
+    public void setDeparture_airport(String departure_airport) {
+        this.departure_airport = departure_airport;
+    }
+
+    public String getArrival_airport() {
+        return arrival_airport;
+    }
+
+    public void setArrival_airport(String arrival_airport) {
+        this.arrival_airport = arrival_airport;
+    }
+
     public String getAirline_name() {
         return airline_name;
     }
 
     public void setAirline_name(String airline_name) {
         this.airline_name = airline_name;
-    }
-
-    public String getAirport_name() {
-        return airport_name;
-    }
-
-    public void setAirport_name(String airport_name) {
-        this.airport_name = airport_name;
     }
 
 
@@ -137,7 +149,8 @@ public class Reservation {
         return "Reservation{" +
                 "id='" + id +
                 ", booking_id='" + name + '\'' +
-                ", airport='" + airport_name + '\'' +
+                ", departure_airport='" + departure_airport + '\'' +
+                ", arrival_airport='" + arrival_airport + '\'' +
                 ", airline='" + airline_name + '\'' +
                 ", departure_city='" + departure_city + '\'' +
                 ", destination='" + destination + '\'' +

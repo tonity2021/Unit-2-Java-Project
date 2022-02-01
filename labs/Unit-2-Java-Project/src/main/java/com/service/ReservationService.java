@@ -27,6 +27,7 @@ public class ReservationService {
         return reservationRepository.findAll();
     }
 
+    //get reservations
     public Optional getReservation(Long reservationId) { //optional object which may contain null and non-null values
         System.out.println("service getReservation ==>");
         Optional reservation = reservationRepository.findById(reservationId);
@@ -37,18 +38,19 @@ public class ReservationService {
         }
     }
 
+    //create reservation
     public Reservation createReservation(Reservation reservationObject) {
         System.out.println("service calling createReservation ==>");
 
         Reservation reservation = reservationRepository.findByName(reservationObject.getName());
         if (reservation != null) {
-            throw new InformationExistException("reservation with booking id " + reservation.getName() + " already exists");
+            throw new InformationExistException("reservation with flight " + reservation.getName() + " already exists");
         } else {
             return reservationRepository.save(reservationObject);
         }
     }
 
-
+    //update reservation
     public Reservation updateReservation(Long reservationId, Reservation reservationObject) {
         System.out.println("service calling updateReservation ==>");
         Optional<Reservation> reservation = reservationRepository.findById(reservationId);
@@ -63,6 +65,9 @@ public class ReservationService {
                 updateReservation.setDestination(reservationObject.getDestination());
                 updateReservation.setDeparture_time(reservationObject.getDeparture_time());
                 updateReservation.setArrival_time(reservationObject.getArrival_time());
+                updateReservation.setDeparture_airport(reservationObject.getDeparture_airport());
+                updateReservation.setArrival_airport(reservationObject.getArrival_airport());
+                updateReservation.setAirline_name(reservationObject.getAirline_name());
                 updateReservation.setBoarding_gate(reservationObject.getBoarding_gate());
                 return reservationRepository.save(updateReservation);
             }
@@ -71,6 +76,7 @@ public class ReservationService {
         }
     }
 
+    //delete reservation
     public Optional<Reservation> deleteReservation(Long reservationId) {
         System.out.println("service calling deleteReservation ==>");
         Optional<Reservation> reservation = reservationRepository.findById(reservationId);
