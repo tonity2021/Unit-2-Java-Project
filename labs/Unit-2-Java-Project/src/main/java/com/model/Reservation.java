@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "reservation")
 public class Reservation {
 
+//table columns
 
     @Id //primary key
     @Column
@@ -32,13 +33,21 @@ public class Reservation {
     @Column
     private String boarding_gate;
 
+    @Column
+    private String airline_name;
+
+    @Column
+    private String airport_name;
+
     public Reservation() {
     }
 
 
-    public Reservation(Long id, String name, String departure_city, String destination, int departure_time, int arrival_time, String boarding_gate) {
+    public Reservation(Long id, String name, String airport_name, String airline_name, String departure_city, String destination, int departure_time, int arrival_time, String boarding_gate) {
         this.id = id;
         this.name = name;
+        this.airport_name = airport_name;
+        this.airline_name = airline_name;
         this.departure_city = departure_city;
         this.destination = destination;
         this.departure_time = departure_time;
@@ -64,6 +73,23 @@ public class Reservation {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getAirline_name() {
+        return airline_name;
+    }
+
+    public void setAirline_name(String airline_name) {
+        this.airline_name = airline_name;
+    }
+
+    public String getAirport_name() {
+        return airport_name;
+    }
+
+    public void setAirport_name(String airport_name) {
+        this.airport_name = airport_name;
+    }
+
 
     public String getDeparture_city() {
         return departure_city;
@@ -110,7 +136,9 @@ public class Reservation {
     public String toString() {
         return "Reservation{" +
                 "id='" + id +
-                ", name='" + name + '\'' +
+                ", booking_id='" + name + '\'' +
+                ", airport='" + airport_name + '\'' +
+                ", airline='" + airline_name + '\'' +
                 ", departure_city='" + departure_city + '\'' +
                 ", destination='" + destination + '\'' +
                 ", departure_time='" + departure_time +

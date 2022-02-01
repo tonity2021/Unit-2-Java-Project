@@ -42,7 +42,7 @@ public class ReservationService {
 
         Reservation reservation = reservationRepository.findByName(reservationObject.getName());
         if (reservation != null) {
-            throw new InformationExistException("reservation with name " + reservation.getName() + " already exists");
+            throw new InformationExistException("reservation with booking id " + reservation.getName() + " already exists");
         } else {
             return reservationRepository.save(reservationObject);
         }
