@@ -1,6 +1,9 @@
 package com.controller;
 
+import com.model.Reservation;
+import com.repository.ReservationRepository;
 import jdk.jfr.Category;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,6 +12,13 @@ import java.util.List;
 @RequestMapping(path = "/api")
 
 public class ReservationController {
+
+    private ReservationRepository reservationRepository;
+
+    @Autowired
+    public void setReservationRepository(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
+    }
 
 
     //    @GetMapping(path = "/hello")
@@ -20,5 +30,9 @@ public class ReservationController {
         return "all reservations";
     }
 
-
+    @GetMapping("/reservations")
+    public List<Reservation> getReservations() {
+        System.out.println("calling getReservations ==>");
+        return reservationRepository.findAll();
+    }
 }
