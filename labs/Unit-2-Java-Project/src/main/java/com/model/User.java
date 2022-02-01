@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "user")   // create a new table called users
+@Table(name = "users")   // create a new table called users
 public class User {
 
     @Id // @Id means primary key
