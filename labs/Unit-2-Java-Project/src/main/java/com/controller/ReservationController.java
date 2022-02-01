@@ -58,7 +58,7 @@ public class ReservationController {
 
         Reservation reservation = reservationRepository.findByName(reservationObject.getName());
         if (reservation != null) {
-            throw new InformationExistException("reservation with flight " + reservation.getName() + " already exists");
+            throw new InformationExistException("The following: " + reservation.getName() + " already exists");
         } else {
             return reservationRepository.save(reservationObject);
         }
@@ -74,7 +74,7 @@ public class ReservationController {
         if (reservation.isPresent()) {
             if (reservationObject.getName().equals(reservation.get().getName())) {
                 System.out.println("Same");
-                throw new InformationExistException("reservation " + reservation.get().getName() + " already exists");
+                throw new InformationExistException("The following: " + reservation.get().getName() + " already exists");
             } else {
                 Reservation updateReservation = reservationRepository.findById(reservationId).get();
                 updateReservation.setDeparture_city(reservationObject.getDeparture_city());
