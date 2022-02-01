@@ -16,8 +16,8 @@ public class ReservationController {
 //        return "Hello World";
 //    }
     @GetMapping(path = "/reservations/") //get all 'reservations' endpoint is working
-    public String getAllCategories() {
-        return "all categories";
+    public String getAllReservations() {
+        return "all reservations";
     }
 
 
