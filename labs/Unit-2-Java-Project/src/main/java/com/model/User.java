@@ -19,9 +19,6 @@ public class User {
     @Column
     private String email;
 
-    @Column
-    private int phoneNumber;
-
 
     public User() {
     }
@@ -29,11 +26,10 @@ public class User {
 
     //constructor
 
-    public User(Long id, String name, String email, int phoneNumber) {
+    public User(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.phoneNumber = phoneNumber;
     }
 
 
@@ -61,13 +57,6 @@ public class User {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     @Override
     public String toString() {
@@ -75,8 +64,6 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-
                 '}';
     }
 
