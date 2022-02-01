@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.exceptions.InformationExistException;
 import com.exceptions.InformationNotFoundException;
 import com.model.Reservation;
 import com.repository.ReservationRepository;
@@ -46,7 +47,17 @@ public class ReservationController {
             throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
         }
     }
+    @PostMapping("/reservation/")
+    public Reservation createReservation(@RequestBody Reservation reservationObject) {
+        System.out.println("calling createCategory ==>");
 
+        Reservation reservation = reservationRepository.findByName(reservationObject.getName());
+        if (reservation != null) {
+            throw new InformationExistException("reservation with name " + reservation.getName() + " already exists");
+        } else {
+            return reservationRepository.save(reservationObject);
+        }
+    }
 
 
 
