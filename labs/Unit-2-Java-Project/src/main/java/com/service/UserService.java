@@ -1,5 +1,5 @@
 package com.service;
-
+//checked
 
 import com.exceptions.InformationExistException;
 import com.model.Request.LoginRequest;
@@ -41,11 +41,11 @@ public class UserService {
 
 
     public User createUser(User userObject){
-        if(!userRepository.existsByEmailAddress(userObject.getEmail())){
+        if(!userRepository.existsByEmailAddress(userObject.getEmailAddress())){
             userObject.setPassword(passwordEncoder.encode(userObject.getPassword()));
             return userRepository.save(userObject);
         } else{
-            throw new InformationExistException("user with email address " + userObject.getEmail() + " already exists");
+            throw new InformationExistException("user with email address " + userObject.getEmailAddress() + " already exists");
         }
     }
 

@@ -12,7 +12,7 @@ public class MyUserDetails implements UserDetails {
     private User user;
     private String userName;
     private String password;
-    private String emailAddress;
+
 
     public MyUserDetails
 
@@ -32,7 +32,7 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public String getUsername(){
-        return user.getEmail();
+        return user.getEmailAddress();//should this be getEmailAddress or getEmail and not userName?
     }
 
     @Override
