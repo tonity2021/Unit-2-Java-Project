@@ -4,7 +4,9 @@ import com.exceptions.InformationExistException;
 import com.exceptions.InformationNotFoundException;
 import com.model.Reservation;
 import com.repository.ReservationRepository;
+import com.security.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 
@@ -26,15 +28,29 @@ public class ReservationService {
     }
 
     //get reservations
-    public Optional getReservation(Long reservationId) { //optional object which may contain null and non-null values
-        System.out.println("service getReservation ==>");
-        Optional reservation = reservationRepository.findById(reservationId);
-        if (reservation.isPresent()) {
-            return reservation;
+//    public Optional getReservation(Long reservationId) { //optional object which may contain null and non-null values
+//        System.out.println("service getReservation ==>");
+//        Optional reservation = reservationRepository.findById(reservationId);
+//        if (reservation.isPresent()) {
+//            return reservation;
+//        } else {
+//            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
+//        }
+//    }
+
+    public List<Reservation> getReservations() {
+        System.out.println("service calling getReservations ==>");
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        System.out.println(userDetails.getUser().getId());
+        List<Reservation> reservation = reservationRepository.findByUserId(userDetails.getUser().getId()); //looks for a reservation in a list of reservations and searches for each by ID
+        if (reservation.isEmpty()) {
+            throw new InformationNotFoundException("no reservations found for user id " + userDetails.getUser().getId());
         } else {
-            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
+            return reservation;
         }
     }
+
 
     //create reservation
     public Reservation createReservation(Reservation reservationObject) {
