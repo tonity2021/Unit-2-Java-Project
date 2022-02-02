@@ -14,9 +14,7 @@ public class MyUserDetails implements UserDetails {
     private String password;
 
 
-    public MyUserDetails
-
-            (User user) {
+    public MyUserDetails(User user) {
         this.user = user;
     }
 

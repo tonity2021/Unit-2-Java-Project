@@ -20,7 +20,7 @@ public class User {
     private String emailAddress;
 
     @Column
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
 //    @OneToOne(cascade = CascadeType.ALL) //one and only one user has one profile
