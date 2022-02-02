@@ -18,12 +18,16 @@ public class ReservationController {
 
     private ReservationService reservationService; //added this
 
-//    @Autowired
+    //    @Autowired
 //    public void setReservationRepository(ReservationRepository reservationRepository) {
 //        this.reservationRepository = reservationRepository;
 //    }
+    @Autowired
+    public void setReservationService(ReservationService reservationService) {
+        this.reservationService = reservationService;
+    }
 
-        @GetMapping(path = "/hello")
+    @GetMapping(path = "/hello")
     public String helloWorld() {
         return "Hello World";
     }
