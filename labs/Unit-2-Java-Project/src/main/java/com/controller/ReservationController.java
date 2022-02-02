@@ -32,12 +32,20 @@ public class ReservationController {
 //    }
 
 
-    //get all reservations
-    @GetMapping("/reservations/")//endpoint working
-    public List<Reservation> getReservation() {
+//    //get all reservations
+//    @GetMapping("/reservations/")//endpoint working
+//    public List<Reservation> getReservation() {
+//        System.out.println("calling getReservations ==>");
+//        return reservationRepository.findAll();
+//    }
+
+
+    @GetMapping("/reservations")
+    public List<Reservation> getReservations() {
         System.out.println("calling getReservations ==>");
-        return reservationRepository.findAll();
+        return reservationService.getReservations();
     }
+
 
     //get reservation by ID
     @GetMapping(path = "/reservation/{reservationId}") //endpoint working
