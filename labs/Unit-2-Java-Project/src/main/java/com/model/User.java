@@ -14,7 +14,7 @@ public class User {
     private Long id;
 
     @Column
-    private String user_name;
+    private String userName;
 
     @Column
     private String email;
@@ -27,9 +27,9 @@ public class User {
 
     //constructor
 
-    public User(Long id, String user_name, String email, String password) {
+    public User(Long id, String userName, String email, String password) {
         this.id = id;
-        this.user_name = user_name;
+        this.userName = userName;
         this.email = email;
         this.password = password;
     }
@@ -43,12 +43,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmail() {
@@ -72,7 +72,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + user_name + '\'' +
+                ", name='" + userName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
