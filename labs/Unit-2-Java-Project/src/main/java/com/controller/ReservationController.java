@@ -33,7 +33,7 @@ public class ReservationController {
 
 
     //get all reservations
-    @GetMapping("/reservations/")///endpoint working
+    @GetMapping("/reservations/")//endpoint working
     public List<Reservation> getReservation() {
         System.out.println("calling getReservations ==>");
         return reservationRepository.findAll();

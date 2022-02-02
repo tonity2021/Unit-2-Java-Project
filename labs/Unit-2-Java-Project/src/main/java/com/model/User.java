@@ -4,15 +4,13 @@ package com.model;
 import javax.persistence.*;
 import java.util.List;
 
-//ADD PASSWORD AND NAME AS USER NAME
-
 @Entity
 @Table(name = "users")   // create a new table called users
 public class User {
 
-    @Id // @Id means primary key
+    @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // equivalent to SERIAL in SQL
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -26,7 +24,6 @@ public class User {
 
     public User() {
     }
-
 
     //constructor
 
