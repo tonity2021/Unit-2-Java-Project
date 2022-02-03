@@ -58,6 +58,31 @@ public class ReservationService {
             return reservationRepository.save(reservationObject);
         }
     }
+//UPDATE
+    public Reservation updateReservation(Long reservationId, Reservation reservationObject) {
+        System.out.println("service calling updateReservation ==>");
+        Optional<Reservation> reservation = reservationRepository.findById(reservationId);
+        if (reservation.isPresent()) {
+            if (reservationObject.getName().equals(reservation.get().getName())) {
+                System.out.println("Same");
+                throw new InformationExistException("reservation " + reservation.get().getName() + " is already exists");
+            } else {
+                Reservation updateReservation = reservationRepository.findById(reservationId).get();
+                updateReservation.setDeparture_city(reservationObject.getDeparture_city());
+                updateReservation.setName(reservationObject.getName());
+                updateReservation.setDestination(reservationObject.getDestination());
+                updateReservation.setDeparture_time(reservationObject.getDeparture_time());
+                updateReservation.setArrival_time(reservationObject.getArrival_time());
+                updateReservation.setBoarding_gate(reservationObject.getBoarding_gate());
+                updateReservation.setDeparture_airport(reservationObject.getDeparture_airport());
+                updateReservation.setArrival_airport(reservationObject.getArrival_airport());
+                updateReservation.setAirline_name(reservationObject.getAirline_name());
+                return reservationRepository.save(updateReservation );
+            }
+        } else {
+            throw new InformationNotFoundException("reservationwith id " + reservationId + " not found");
+        }
+    }
 
 
 
