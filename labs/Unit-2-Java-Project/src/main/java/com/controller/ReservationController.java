@@ -131,6 +131,7 @@ public class ReservationController {
 //UPDATE
     @PutMapping("/reservations/{reservationId}/")
     public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject){
+        System.out.println("calling updateReservation ==>");
         return reservationService.updateReservation(reservationId, reservationObject);
     }
 
