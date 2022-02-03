@@ -42,7 +42,7 @@ public class ReservationController {
 //        return reservationRepository.findAll();
 //    }
 
-
+//GET ALL RESERVATIONS
     @GetMapping("/reservations/")
     public List<Reservation> getReservations() {
         System.out.println("calling getReservations ==>");
@@ -61,6 +61,13 @@ public class ReservationController {
 //            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
 //        }
 //    }
+
+    //GET RESERVATION BY ID
+    @GetMapping(path = "/reservation/{reservationId}")
+    public Optional<Reservation> getReservation(@PathVariable Long reservationId) {
+
+        return reservationService. getReservation(reservationId);
+    }
 
 //    @PutMapping("/reservations/{reservationId}")
 //    public Reservation updateReservation(@PathVariable(
@@ -82,6 +89,8 @@ public class ReservationController {
 //            return reservationRepository.save(reservationObject);
 //        }
 //    }
+
+    //CREATE RESERVATION
     @PostMapping("/reservation/")
     public Reservation createReservation(@RequestBody Reservation reservationObject) {
         System.out.println("calling createReservation ==>");
@@ -141,7 +150,7 @@ public class ReservationController {
 //        }
 //    }
 
-
+//DELETE BY ID
     @DeleteMapping("/reservations/{reservationId}")
     public Optional<Reservation> deleteReservation(@PathVariable(value = "reservationId") Long reservationId) {
         System.out.println("calling deleteRez ==>");
