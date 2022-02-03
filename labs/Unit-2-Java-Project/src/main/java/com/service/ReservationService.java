@@ -55,7 +55,7 @@ public class ReservationService {
         }
 
     }
-
+//CREATE REZ
     public Reservation createReservation(Reservation reservationObject) {
         System.out.println("service calling createReservation ==>");
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()

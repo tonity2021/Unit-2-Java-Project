@@ -3,6 +3,7 @@ package com.controller;
 import com.exceptions.InformationExistException;
 import com.exceptions.InformationNotFoundException;
 import com.model.Reservation;
+import com.model.UserProfile;
 import com.repository.ReservationRepository;
 import com.security.MyUserDetails;
 import com.service.ReservationService;
@@ -96,6 +97,15 @@ public class ReservationController {
         System.out.println("calling createReservation ==>");
         return reservationService.createReservation(reservationObject);
     }
+
+//create USER PROFILE HERE:
+    //Need a createProfile method
+//    @PostMapping("/userProfile/")
+//    public UserProfile createProfile(@RequestBody UserProfile userProfileObject) {
+//        System.out.println("calling createProfile==>");
+//        return reservationService.createProfile(userProfileObject);
+//    }
+//
 
 
 
