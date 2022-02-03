@@ -120,10 +120,10 @@ public class ReservationController {
 //
 //        }
 
-//    @PutMapping("/reservations/{reservationId}/")
-//    public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject){
-//        return reservationService.updateReservation(reservationId, reservationObject);
-//    }
+    @PutMapping("/reservations/{reservationId}/")
+    public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject){
+        return reservationService.updateReservation(reservationId, reservationObject);
+    }
 
 //    }
 
