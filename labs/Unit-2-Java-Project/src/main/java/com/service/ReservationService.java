@@ -28,6 +28,17 @@ public class ReservationService {
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+    //GET REZ BY ID
+
+    public Optional getReservation(Long reservationId) {
+        System.out.println("service getReservation( ==>");
+        Optional reservation = reservationRepository.findById(reservationId);
+        if (reservation.isPresent()) {
+            return reservation;
+        } else {
+            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
+        }
+    }
 
     public List<Reservation> getAllReservations() {
 
