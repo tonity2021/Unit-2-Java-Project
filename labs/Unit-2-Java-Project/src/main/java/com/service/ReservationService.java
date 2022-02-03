@@ -58,7 +58,7 @@ public class ReservationService {
             return reservationRepository.save(reservationObject);
         }
     }
-//UPDATE
+//UPDATE //not working yet
     public Reservation updateReservation(Long reservationId, Reservation reservationObject) {
         System.out.println("service calling updateReservation ==>");
         Optional<Reservation> reservation = reservationRepository.findById(reservationId);
@@ -80,10 +80,20 @@ public class ReservationService {
                 return reservationRepository.save(updateReservation );
             }
         } else {
-            throw new InformationNotFoundException("reservationwith id " + reservationId + " not found");
+            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
         }
     }
+//DELETE
+    public Optional<Reservation> deleteReservation(Long reservationId) {
+        System.out.println("service calling deleteReservation ==>");
+        Optional<Reservation> reservation = reservationRepository.findById(reservationId);
 
-
+        if (((Optional<?>) reservation).isPresent()) {
+            reservationRepository.deleteById(reservationId);
+            return reservation;
+        } else {
+            throw new InformationNotFoundException("reservationowith id " + reservationId + " not found");
+        }
+    }
 
 }
