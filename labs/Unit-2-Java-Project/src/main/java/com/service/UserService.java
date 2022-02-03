@@ -1,5 +1,4 @@
 package com.service;
-//checked
 
 import com.exceptions.InformationExistException;
 import com.model.Request.LoginRequest;
@@ -8,6 +7,7 @@ import com.model.User;
 import com.repository.UserRepository;
 import com.security.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,7 +23,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    public void setUserRepository(UserRepository userRepository){
+    public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -40,20 +40,20 @@ public class UserService {
     private JWTUtils jwtUtils;
 
 
-    public User createUser(User userObject){
-        if(!userRepository.existsByEmailAddress(userObject.getEmailAddress())){
+    public User createUser(User userObject) {
+        if (!userRepository.existsByEmailAddress(userObject.getEmailAddress())) {
             userObject.setPassword(passwordEncoder.encode(userObject.getPassword()));
             return userRepository.save(userObject);
-        } else{
+        } else {
             throw new InformationExistException("user with email address " + userObject.getEmailAddress() + " already exists");
         }
     }
 
-    public User findUserByEmailAddress(String email){
+    public User findUserByEmailAddress(String email) {
         return userRepository.findUserByEmailAddress(email);
     }
 
-    public ResponseEntity<?> loginUser(LoginRequest loginRequest){
+    public ResponseEntity<?> loginUser(LoginRequest loginRequest) {
 
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
 
