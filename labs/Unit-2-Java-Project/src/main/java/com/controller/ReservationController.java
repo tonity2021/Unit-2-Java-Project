@@ -119,7 +119,7 @@ public class ReservationController {
 //
 //
 //        }
-
+//UPDATE
     @PutMapping("/reservations/{reservationId}/")
     public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject){
         return reservationService.updateReservation(reservationId, reservationObject);
@@ -140,6 +140,14 @@ public class ReservationController {
 //            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
 //        }
 //    }
+
+
+    @DeleteMapping("/reservations/{reservationId}")
+    public Optional<Reservation> deleteReservation(@PathVariable(value = "reservationId") Long reservationId) {
+        System.out.println("calling deleteRez ==>");
+        return reservationService.deleteReservation(reservationId);
+    }
+
 
 
 
