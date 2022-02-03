@@ -1,7 +1,6 @@
 package com.service;
 
 import com.exceptions.InformationExistException;
-import com.model.User;
 import com.model.UserProfile;
 import com.repository.UserProfileRepository;
 import com.repository.UserRepository;
