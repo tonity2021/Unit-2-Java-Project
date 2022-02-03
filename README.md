@@ -8,4 +8,4 @@
 
 
 
-##![Ticket_booking_Java_project_ERD](https://user-images.githubusercontent.com/94870846/152448875-888ae931-4149-40bf-9875-d5d78853156c.png)
+![Picture2](https://user-images.githubusercontent.com/94870846/152449204-03a2ed3c-e2dc-455c-b396-cf8ec0911daa.png)
