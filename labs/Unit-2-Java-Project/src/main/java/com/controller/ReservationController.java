@@ -1,14 +1,9 @@
 package com.controller;
 
-import com.exceptions.InformationExistException;
-import com.exceptions.InformationNotFoundException;
+
 import com.model.Reservation;
-import com.model.UserProfile;
-import com.repository.ReservationRepository;
-import com.security.MyUserDetails;
 import com.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,7 +38,7 @@ public class ReservationController {
 //        return reservationRepository.findAll();
 //    }
 
-//GET ALL RESERVATIONS (done)
+    //get all reservations
     @GetMapping("/reservations/")
     public List<Reservation> getReservations() {
         System.out.println("calling getReservations ==>");
@@ -63,11 +58,11 @@ public class ReservationController {
 //        }
 //    }
 
-    //GET RESERVATION BY ID (done)
+    //get reservation by ID
     @GetMapping(path = "/reservation/{reservationId}")
     public Optional<Reservation> getReservation(@PathVariable Long reservationId) {
 
-        return reservationService. getReservation(reservationId);
+        return reservationService.getReservation(reservationId);
     }
 
 //    @PutMapping("/reservations/{reservationId}")
@@ -91,7 +86,7 @@ public class ReservationController {
 //        }
 //    }
 
-    //CREATE RESERVATION (done)
+    //create a new reservation
     @PostMapping("/reservation/")
     public Reservation createReservation(@RequestBody Reservation reservationObject) {
         System.out.println("calling createReservation ==>");
@@ -104,7 +99,6 @@ public class ReservationController {
 //        return reservationService.createProfile(userProfileObject);
 //    }
 //
-
 
 
     //modify reservation by ID
@@ -136,9 +130,9 @@ public class ReservationController {
 //
 //
 //        }
-//UPDATE
+    //modify reservation by ID
     @PutMapping("/reservation/{reservationId}/") //HAVE TO CHANGE THE NAME WHEN YOU UPDATE IT
-    public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject){
+    public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject) {
         System.out.println("calling updateReservation ==>");
         return reservationService.updateReservation(reservationId, reservationObject);
     }
@@ -159,14 +153,12 @@ public class ReservationController {
 //        }
 //    }
 
-//DELETE BY ID (working)
+    //delete reservation
     @DeleteMapping("/reservation/{reservationId}")
     public Optional<Reservation> deleteReservation(@PathVariable(value = "reservationId") Long reservationId) {
         System.out.println("calling deleteRez ==>");
         return reservationService.deleteReservation(reservationId);
     }
-
-
 
 
 }
