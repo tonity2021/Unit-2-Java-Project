@@ -22,9 +22,9 @@ public class UserProfile {
     @Column
     private String profileDescription;
 
-//    @JsonIgnore
-//    @OneToOne(mappedBy = "userProfile") //this column is owned by another entity
-//    private User user;
+    @JsonIgnore
+    @OneToOne(mappedBy = "userProfile") //this column is owned by another entity
+    private User user;
 
     public UserProfile(Long id, String firstName, String lastName, String profileDescription) {
         this.id = id;
@@ -68,13 +68,13 @@ public class UserProfile {
         this.profileDescription = profileDescription;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Override
     public String toString() {

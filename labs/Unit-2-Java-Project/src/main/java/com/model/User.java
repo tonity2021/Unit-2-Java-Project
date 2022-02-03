@@ -1,8 +1,11 @@
 package com.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -16,17 +19,23 @@ public class User {
     @Column
     private String userName;
 
-    @Column //(unique = true)
+    @Column(unique = true)
     private String emailAddress;
 
     @Column
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-//    @OneToOne(cascade = CascadeType.ALL) //one and only one user has one profile
-//    @JoinColumn(name = "profile_id", referencedColumnName = "id") //Connects the table via a foreign key (profile_id)
-//    private UserProfile userProfile;
-//Constructor for the User...followed by Getters and Setters
+    // one user can have only one profile
+    @OneToOne(cascade = CascadeType.ALL) //one and only one user has one profile
+    @JoinColumn(name = "profile_id", referencedColumnName = "id") //Connects the table via a foreign key (profile_id)
+    private UserProfile userProfile;
+
+    //user can have more than one reservation
+    @OneToMany(mappedBy = "user")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Reservation> reservationList;
+
 
     public User(Long id, String userName, String emailAddress, String password) {
         this.id = id;
@@ -54,7 +63,13 @@ public class User {
         this.id = id;
     }
 
+    public List<Reservation> getReservationList() {
+        return reservationList;
+    }
 
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
+    }
 
     public String getEmailAddress() {
         return emailAddress;
@@ -72,13 +87,13 @@ public class User {
         this.password = password;
     }
 //
-//    public UserProfile getUserProfile() {
-//        return userProfile;
-//    }
-//
-//    public void setUserProfile(UserProfile userProfile) {
-//        this.userProfile = userProfile;
-//    }
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
+    }
 
     @Override
     public String toString() {

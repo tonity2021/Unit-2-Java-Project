@@ -39,8 +39,22 @@ public class Reservation {
     @Column
     private int arrival_time;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Column
     private String boarding_gate;
+
+    //many reservations belong to a user
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private User user;
 
 
     public Reservation() {
