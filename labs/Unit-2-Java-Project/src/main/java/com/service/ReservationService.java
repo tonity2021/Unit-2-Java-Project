@@ -45,5 +45,20 @@ public class ReservationService {
 
     }
 
+    public Reservation createReservation(Reservation reservationObject) {
+        System.out.println("service calling createReservation ==>");
+        MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        Reservation reservation = reservationRepository.findByUserIdAndName(
+                userDetails.getUser().getId(), reservationObject.getName());
+        if (reservation != null) {
+            throw new InformationExistException("reservation with name " + reservation.getName() + " already exists");
+        } else {
+            reservationObject.setUser(userDetails.getUser());
+            return reservationRepository.save(reservationObject);
+        }
+    }
+
+
 
 }
