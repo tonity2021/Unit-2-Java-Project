@@ -82,6 +82,11 @@ public class ReservationController {
 //            return reservationRepository.save(reservationObject);
 //        }
 //    }
+    @PostMapping("/reservation/")
+    public Reservation createReservation(@RequestBody Reservation reservationObject) {
+        System.out.println("calling createReservation ==>");
+        return reservationService.createReservation(reservationObject);
+    }
 
 
 
