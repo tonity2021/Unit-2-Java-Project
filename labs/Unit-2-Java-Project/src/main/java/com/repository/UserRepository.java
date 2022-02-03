@@ -3,12 +3,14 @@ package com.repository;
 
 import com.model.Reservation;
 import com.model.User;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    User findUserById(Long userId);
     //to register
     boolean existsByEmailAddress(String userEmailAddress);
 
