@@ -98,8 +98,6 @@ public class ReservationController {
         return reservationService.createReservation(reservationObject);
     }
 
-//create USER PROFILE HERE:
-    //Need a createProfile method
 //    @PostMapping("/userProfile/")
 //    public UserProfile createProfile(@RequestBody UserProfile userProfileObject) {
 //        System.out.println("calling createProfile==>");
@@ -139,7 +137,7 @@ public class ReservationController {
 //
 //        }
 //UPDATE
-    @PutMapping("/reservation/{reservationId}/") //(still working on this one)
+    @PutMapping("/reservation/{reservationId}/") //HAVE TO CHANGE THE NAME WHEN YOU UPDATE IT
     public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject){
         System.out.println("calling updateReservation ==>");
         return reservationService.updateReservation(reservationId, reservationObject);

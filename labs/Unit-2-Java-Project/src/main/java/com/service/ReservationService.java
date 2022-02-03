@@ -69,7 +69,7 @@ public class ReservationService {
             return reservationRepository.save(reservationObject);
         }
     }
-//UPDATE //not working yet
+//UPDATE //HAVE TO CHANGE THE NAME WHEN YOU UPDATE IT
     public Reservation updateReservation(Long reservationId, Reservation reservationObject) {
         System.out.println("service calling updateReservation ==>");
         Optional<Reservation> reservation = reservationRepository.findById(reservationId);
