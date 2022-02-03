@@ -49,7 +49,7 @@ public class ReservationService {
         List<Reservation> reservation = reservationRepository.findByUserId(userDetails.getUser().getId());
 
         if (reservation.isEmpty()) {
-            throw new InformationNotFoundException("no reservation found for user id " + userDetails.getUser().getId() + " not found");
+            throw new InformationNotFoundException("no reservations found for user id " + userDetails.getUser().getId() + ".");
         } else {
             return reservation;
         }
@@ -76,7 +76,7 @@ public class ReservationService {
         if (reservation.isPresent()) {
             if (reservationObject.getName().equals(reservation.get().getName())) {
                 System.out.println("Same");
-                throw new InformationExistException("reservation " + reservation.get().getName() + " is already exists");
+                throw new InformationExistException("reservation " + reservation.get().getName() + " already exists");
             } else {
                 Reservation updateReservation = reservationRepository.findById(reservationId).get();
                 updateReservation.setDeparture_city(reservationObject.getDeparture_city());
@@ -103,7 +103,7 @@ public class ReservationService {
             reservationRepository.deleteById(reservationId);
             return reservation;
         } else {
-            throw new InformationNotFoundException("reservationowith id " + reservationId + " not found");
+            throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
         }
     }
 

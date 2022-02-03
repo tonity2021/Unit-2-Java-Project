@@ -42,7 +42,7 @@ public class ReservationController {
 //        return reservationRepository.findAll();
 //    }
 
-//GET ALL RESERVATIONS
+//GET ALL RESERVATIONS (done)
     @GetMapping("/reservations/")
     public List<Reservation> getReservations() {
         System.out.println("calling getReservations ==>");
@@ -62,7 +62,7 @@ public class ReservationController {
 //        }
 //    }
 
-    //GET RESERVATION BY ID
+    //GET RESERVATION BY ID (done)
     @GetMapping(path = "/reservation/{reservationId}")
     public Optional<Reservation> getReservation(@PathVariable Long reservationId) {
 
@@ -90,7 +90,7 @@ public class ReservationController {
 //        }
 //    }
 
-    //CREATE RESERVATION
+    //CREATE RESERVATION (done)
     @PostMapping("/reservation/")
     public Reservation createReservation(@RequestBody Reservation reservationObject) {
         System.out.println("calling createReservation ==>");
@@ -129,7 +129,7 @@ public class ReservationController {
 //
 //        }
 //UPDATE
-    @PutMapping("/reservations/{reservationId}/")
+    @PutMapping("/reservation/{reservationId}/") //(still working on this one)
     public Reservation updateReservation(@PathVariable(value = "reservationId") Long reservationId, @RequestBody Reservation reservationObject){
         System.out.println("calling updateReservation ==>");
         return reservationService.updateReservation(reservationId, reservationObject);
@@ -151,8 +151,8 @@ public class ReservationController {
 //        }
 //    }
 
-//DELETE BY ID
-    @DeleteMapping("/reservations/{reservationId}")
+//DELETE BY ID (working)
+    @DeleteMapping("/reservation/{reservationId}")
     public Optional<Reservation> deleteReservation(@PathVariable(value = "reservationId") Long reservationId) {
         System.out.println("calling deleteRez ==>");
         return reservationService.deleteReservation(reservationId);
