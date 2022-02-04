@@ -20,14 +20,14 @@ public class UserProfile {
     private String lastName;
 
     @Column
-    private Integer travel_dates;
+    private String travel_dates;
 
     @JsonIgnore
     @OneToOne(mappedBy = "userProfile") //this column is owned by another entity
     private User user;
 
 
-    public UserProfile(Long id, String firstName, String lastName, Integer travel_dates) {
+    public UserProfile(Long id, String firstName, String lastName, String travel_dates) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -61,9 +61,9 @@ public class UserProfile {
         this.lastName = lastName;
     }
 
-    public Integer getTravel_dates() {return travel_dates;}
+    public String getTravel_dates() {return travel_dates;}
 
-    public void setTravel_dates(Integer travel_dates) {this.travel_dates = travel_dates;}
+    public void setTravel_dates(String travel_dates) {this.travel_dates = travel_dates;}
 
 
     public User getUser() {
