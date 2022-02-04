@@ -25,7 +25,12 @@ Ultimately I was able to achieve this project through a variety of outside tools
 
 **Technologies and Tools Used**
 
-
+![image](https://user-images.githubusercontent.com/94870846/152493640-cd82f4c2-7a41-4007-9799-7237cdcf60cb.png)
+Java
+Spring Boot
+PostGreSQL
+Postman
+GitBash
 
 
 
