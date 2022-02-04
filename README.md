@@ -7,23 +7,23 @@ This app represents a real-life online travel booking system which allows a user
 
 Ultimately I was able to achieve this project through a variety of outside tools: using Word document to track my goals and progress, creating an ERD, and making multiple commits via Git Bash to keep track of recent changes to my project.
 
-**Entity Relationship Diagram (ERD)**
+## Entity Relationship Diagram (ERD)
 
 ![image](https://user-images.githubusercontent.com/94870846/152490521-48faabdd-4f3b-4799-afd7-7f6fd64376df.png)
 
-**IDE IntelliJ Configuration (Spring Boot Dev Tools)**
+## IDE IntelliJ Configuration (Spring Boot Dev Tools)
 
 ![image](https://user-images.githubusercontent.com/94870846/152491284-2918e2e0-33c6-4dc7-bdae-f33edebd4e5c.png)
 
-**POM Dependencies**
+## POM Dependencies
 
 ![image](https://user-images.githubusercontent.com/94870846/152493122-c6563368-462a-4bfa-aff1-8517cff00ab5.png)![image](https://user-images.githubusercontent.com/94870846/152492518-c14b4795-4e6c-427c-9920-a14c270468e5.png)
 
-**Endpoints**
+## Endpoints
 
 ![image](https://user-images.githubusercontent.com/94870846/152493185-f16ea30b-9139-4959-aad6-c937600c4a42.png)
 
-**Technologies and Tools Used**
+## Technologies and Tools Used
 
 ![image](https://user-images.githubusercontent.com/94870846/152493640-cd82f4c2-7a41-4007-9799-7237cdcf60cb.png)
 IntelliJ~
@@ -35,7 +35,7 @@ GitBash~
 
 ![image](https://user-images.githubusercontent.com/94870846/152494729-699a44be-502e-4648-88b4-107e2e80002e.png)
 
-**User Stories**
+## User Stories
 
 •	As a user I can create a new travel reservation so I can travel. <br />
 •	As a user I can be ensured my booking session will be secure so that I can feel safe using my personal details.  <br />
@@ -50,7 +50,7 @@ GitBash~
 •	As a user I can view the boarding gate associated with my reservation. <br />
 •	As a user I can create a user profile so that I can reference my travel dates. <br />
 
-Challenges
+## Challenges
 
 
 
