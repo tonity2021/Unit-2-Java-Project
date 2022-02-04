@@ -9,7 +9,7 @@ Ultimately I was able to achieve this project through a variety of outside tools
 
 ## Entity Relationship Diagram (ERD)
 
-![image](https://user-images.githubusercontent.com/94870846/152490521-48faabdd-4f3b-4799-afd7-7f6fd64376df.png)
+![image](https://user-images.githubusercontent.com/94870846/152574124-8ccd1ed7-8bce-4d94-b8fc-bee60b4a3d36.png)
 
 ## IDE IntelliJ Configuration (Spring Boot Dev Tools)
 
