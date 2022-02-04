@@ -33,5 +33,24 @@ PostGreSQL~
 Postman~
 GitBash~
 
+**User Stories**
+
+•	As a user I can create a new travel reservation so I can travel.
+•	As a user I can be ensured my booking session will be secure so that I can feel safe using my personal details
+•	As a user I can search for my reservation by booking Id to ensure I’m referencing the correct flight.
+•	As a user I can view my reservations so I can see the details of my flight.
+•	As a user I can update/modify my reservation if I change my mind about some of my travel plans.
+•	As a user I can cancel my reservation in case of an emergency situation.
+•	As a user I can view the airport associated with my reservation.
+•	As a user I can view the airline(s) associated with my reservation.
+•	As a user I can view the destination and departure city associated with my reservation.
+•	As a user I can view the departure and arrival times of my reservation.
+•	As a user I can view the boarding gate associated with my reservation.
+•	As a user I can create a user profile so that I can reference my travel dates.
+
+Challenges
+
+
+
 
 
