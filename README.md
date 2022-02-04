@@ -17,12 +17,11 @@ Ultimately I was able to achieve this project through a variety of outside tools
 
 **POM Dependencies**
 
-![image](https://user-images.githubusercontent.com/94870846/152492484-a225b589-c1fb-4f79-a469-37e4feb38a8a.png)
-![image](https://user-images.githubusercontent.com/94870846/152492518-c14b4795-4e6c-427c-9920-a14c270468e5.png)
+![image](https://user-images.githubusercontent.com/94870846/152493122-c6563368-462a-4bfa-aff1-8517cff00ab5.png)![image](https://user-images.githubusercontent.com/94870846/152492518-c14b4795-4e6c-427c-9920-a14c270468e5.png)
 
 **Endpoints**
 
-![image](https://user-images.githubusercontent.com/94870846/152493009-1bb3f65f-7785-4906-ab6e-7e47b8286694.png)
+![image](https://user-images.githubusercontent.com/94870846/152493185-f16ea30b-9139-4959-aad6-c937600c4a42.png)
 
 **Technologies and Tools Used**
 
