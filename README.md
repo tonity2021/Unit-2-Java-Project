@@ -57,9 +57,10 @@ GitBash~
 
 ## Project Links
 
-# User Stories and ERD
+User Stories and ERD
 
-# Project Outline and Timeline
+Project Outline and Timeline
+[Online booking travel system project timeline.docx](https://github.com/tonity2021/Unit-2-Java-Project/files/8001176/Online.booking.travel.system.project.timeline.docx)
 
 
 
