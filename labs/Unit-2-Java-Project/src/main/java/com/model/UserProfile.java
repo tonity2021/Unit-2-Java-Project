@@ -20,26 +20,25 @@ public class UserProfile {
     private String lastName;
 
     @Column
-    private String travel_dates;
+    private Integer phone_number;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "userProfile") //this column is owned by another entity
+    @OneToOne(mappedBy = "userProfile")
     private User user;
 
 
-    public UserProfile(Long id, String firstName, String lastName, String travel_dates) {
+    public UserProfile(Long id, String firstName, String lastName, Integer phone_number) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.travel_dates = travel_dates;
+        this.phone_number = phone_number;
     }
 
     public UserProfile() {
     }
 
-    public Long getId() {
-        return id;
-    }
+    //getters and setters
+    public Long getId() { return id;}
 
     public void setId(Long id) {
         this.id = id;
@@ -61,10 +60,9 @@ public class UserProfile {
         this.lastName = lastName;
     }
 
-    public String getTravel_dates() {return travel_dates;}
+    public Integer getPhone_number() { return phone_number; }
 
-    public void setTravel_dates(String travel_dates) {this.travel_dates = travel_dates;}
-
+    public void setPhone_number(Integer phone_number) { this.phone_number = phone_number; }
 
     public User getUser() {
         return user;
@@ -80,7 +78,7 @@ public class UserProfile {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", travel_dates='" + travel_dates + '\'' +
+                ", phoneNumber ='" + phone_number + '\'' +
                 '}';
     }
 

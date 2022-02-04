@@ -39,7 +39,7 @@ public class UserService {
     @Autowired
     private JWTUtils jwtUtils;
 
-
+    //checks if user exists by email address
     public User createUser(User userObject) {
         if (!userRepository.existsByEmailAddress(userObject.getEmailAddress())) {
             userObject.setPassword(passwordEncoder.encode(userObject.getPassword()));
@@ -49,6 +49,7 @@ public class UserService {
         }
     }
 
+    //find and authenticate user by email address
     public User findUserByEmailAddress(String email) {
         return userRepository.findUserByEmailAddress(email);
     }

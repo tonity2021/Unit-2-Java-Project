@@ -29,9 +29,7 @@ public class MyUserDetails implements UserDetails {
     }
 
     @Override
-    public String getUsername(){
-        return user.getEmailAddress();//should this be getEmailAddress or getEmail and not userName?
-    }
+    public String getUsername(){ return user.getEmailAddress(); }
 
     @Override
     public boolean isAccountNonExpired(){

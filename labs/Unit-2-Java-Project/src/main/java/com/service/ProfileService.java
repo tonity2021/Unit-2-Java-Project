@@ -25,7 +25,7 @@ public class ProfileService {
         this.userRepository = userRepository;
     }
 
-
+    //create a new user profile
     public UserProfile createProfile(UserProfile userProfileObject) {
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println("service calling createProfile ==>");

@@ -28,8 +28,8 @@ public class ReservationService {
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    //GET REZ BY ID
 
+    //get reservation by Id
     public Optional getReservation(Long reservationId) {
         System.out.println("service getReservation( ==>");
         Optional reservation = reservationRepository.findById(reservationId);
@@ -39,7 +39,7 @@ public class ReservationService {
             throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
         }
     }
-
+    //get all reservations
     public List<Reservation> getAllReservations() {
 
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -55,7 +55,7 @@ public class ReservationService {
         }
 
     }
-//CREATE REZ
+    //create a new reservation
     public Reservation createReservation(Reservation reservationObject) {
         System.out.println("service calling createReservation ==>");
         MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication()
@@ -69,7 +69,7 @@ public class ReservationService {
             return reservationRepository.save(reservationObject);
         }
     }
-//UPDATE //HAVE TO CHANGE THE NAME WHEN YOU UPDATE IT
+    //update reservation
     public Reservation updateReservation(Long reservationId, Reservation reservationObject) {
         System.out.println("service calling updateReservation ==>");
         Optional<Reservation> reservation = reservationRepository.findById(reservationId);
@@ -88,13 +88,14 @@ public class ReservationService {
                 updateReservation.setDeparture_airport(reservationObject.getDeparture_airport());
                 updateReservation.setArrival_airport(reservationObject.getArrival_airport());
                 updateReservation.setAirline_name(reservationObject.getAirline_name());
+                updateReservation.setTravel_dates(reservationObject.getTravel_dates());
                 return reservationRepository.save(updateReservation );
             }
         } else {
             throw new InformationNotFoundException("reservation with id " + reservationId + " not found");
         }
     }
-//DELETE
+    //delete reservation
     public Optional<Reservation> deleteReservation(Long reservationId) {
         System.out.println("service calling deleteReservation ==>");
         Optional<Reservation> reservation = reservationRepository.findById(reservationId);

@@ -1,7 +1,5 @@
 package com.model.Response;
 
-//rearranged and organized
-
 public class LoginResponse {
 
     private String JWT;

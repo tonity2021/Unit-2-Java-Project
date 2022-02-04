@@ -39,16 +39,11 @@ public class Reservation {
     @Column
     private int arrival_time;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     @Column
     private String boarding_gate;
+
+    @Column
+    private String travel_dates;
 
     //many reservations belong to a user
     @ManyToOne
@@ -60,7 +55,7 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(Long id, String name, String departure_airport, String arrival_airport, String airline_name, String departure_city, String destination, int departure_time, int arrival_time, String boarding_gate) {
+    public Reservation(Long id, String name, String departure_airport, String arrival_airport, String airline_name, String departure_city, String destination, int departure_time, int arrival_time, String boarding_gate, String travel_dates) {
         this.id = id;
         this.name = name;
         this.departure_airport = departure_airport;
@@ -71,9 +66,9 @@ public class Reservation {
         this.departure_time = departure_time;
         this.arrival_time = arrival_time;
         this.boarding_gate = boarding_gate;
+        this.travel_dates = travel_dates;
 
     }
-
 
     //getters and setters
     public Long getId() {
@@ -116,7 +111,6 @@ public class Reservation {
         this.airline_name = airline_name;
     }
 
-
     public String getDeparture_city() {
         return departure_city;
     }
@@ -157,6 +151,13 @@ public class Reservation {
         this.boarding_gate = boarding_gate;
     }
 
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
+
+    public String getTravel_dates() { return travel_dates; }
+
+    public void setTravel_dates(String travel_dates) { this.travel_dates = travel_dates; }
 
     @Override
     public String toString() {
@@ -171,7 +172,6 @@ public class Reservation {
                 ", departure_time='" + departure_time +
                 ", arrival_time='" + arrival_time + '\'' +
                 ", boarding_gate='" + boarding_gate + '\'' +
-//                ", isPublic=" + isPublic +
                 '}';
     }
 

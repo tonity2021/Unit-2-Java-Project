@@ -26,15 +26,12 @@ public class UserController {
         this.userService = userService;
     }
 
-//register and log-in user
+    //register and log-in user
     @PostMapping("/register/")
     public User createUser(@RequestBody User userObject){
         return userService.createUser(userObject);
     }
     @PostMapping("/login/")
-    public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest){
-        return userService.loginUser(loginRequest);
-    }
-
+    public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest){ return userService.loginUser(loginRequest);}
 
 }
