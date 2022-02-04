@@ -33,9 +33,9 @@ PostGreSQL~
 Postman~
 GitBash~
 
-![image](https://user-images.githubusercontent.com/94870846/152494729-699a44be-502e-4648-88b4-107e2e80002e.png)
-
 ## User Stories
+
+![image](https://user-images.githubusercontent.com/94870846/152494729-699a44be-502e-4648-88b4-107e2e80002e.png)
 
 •	As a user I can create a new travel reservation so I can travel. <br />
 •	As a user I can be ensured my booking session will be secure so that I can feel safe using my personal details.  <br />
@@ -51,6 +51,15 @@ GitBash~
 •	As a user I can create a user profile so that I can reference my travel dates. <br />
 
 ## Challenges
+
+![image](https://user-images.githubusercontent.com/94870846/152495215-90a3a232-2105-42fd-9a70-9d169a3ca08e.png)
+
+
+## Project Links
+
+# User Stories and ERD
+
+# Project Outline and Timeline
 
 
 
