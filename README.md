@@ -7,6 +7,7 @@ This app represents a real-life online travel booking system which allows a user
 
 Ultimately I was able to achieve this project through a variety of outside tools: using Word document to track my goals and progress, creating an ERD, and making multiple commits via Git Bash to keep track of recent changes to my project.
 
+Entity Relationship Diagram (ERD)
 
 ![image](https://user-images.githubusercontent.com/94870846/152490521-48faabdd-4f3b-4799-afd7-7f6fd64376df.png)
 
