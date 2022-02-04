@@ -7,8 +7,26 @@ This app represents a real-life online travel booking system which allows a user
 
 Ultimately I was able to achieve this project through a variety of outside tools: using Word document to track my goals and progress, creating an ERD, and making multiple commits via Git Bash to keep track of recent changes to my project.
 
-Entity Relationship Diagram (ERD)
+**Entity Relationship Diagram (ERD)**
 
 ![image](https://user-images.githubusercontent.com/94870846/152490521-48faabdd-4f3b-4799-afd7-7f6fd64376df.png)
+
+**IDE IntelliJ Configuration (Spring Boot Dev Tools)**
+
+![image](https://user-images.githubusercontent.com/94870846/152491284-2918e2e0-33c6-4dc7-bdae-f33edebd4e5c.png)
+
+**POM Dependencies**
+
+![image](https://user-images.githubusercontent.com/94870846/152491390-1acd705b-a948-4db9-9ee5-cb244bcb8429.png)
+![image](https://user-images.githubusercontent.com/94870846/152491408-482a1884-531b-4fdd-9ba7-d6fccc68f041.png)
+
+**Endpoints**
+
+![image](https://user-images.githubusercontent.com/94870846/152491497-3c6d4a0e-7445-4967-ae3f-b43a982a2916.png)
+
+**Technologies and Tools Used**
+
+
+
 
 
